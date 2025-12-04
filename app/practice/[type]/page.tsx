@@ -23,7 +23,7 @@ export default async function PracticeTypePage(props: PageProps) {
                 <h1 className="text-2xl font-semibold mb-1">{config.label}</h1>
                 <p className="text-slate-400 mb-4">{config.description}</p>
 
-                <PracticePageClient type={type} initialIds={autoIds} />
+                <PracticePageClient type={type} initialIds={[...autoIds]} />
             </div>
         </main>
     );
