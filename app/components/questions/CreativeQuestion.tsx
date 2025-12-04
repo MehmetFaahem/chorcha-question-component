@@ -1,4 +1,4 @@
-// components/questions/CreativeQuestion.tsx
+// app/components/questions/CreativeQuestion.tsx
 "use client";
 
 import { useState } from "react";
@@ -12,9 +12,12 @@ type Props = {
 
 type PartKey = "A" | "B" | "C" | "D";
 
+// 👇 define a strongly-typed constant, then slice
+const PART_KEYS: PartKey[] = ["A", "B", "C", "D"];
+
 export default function CreativeQuestion({ data, index = 0 }: Props) {
     const numParts = data.type === "CQ_3" ? 3 : 4;
-    const partKeys: PartKey[] = ["A", "B", "C", "D"].slice(0, numParts);
+    const partKeys = PART_KEYS.slice(0, numParts); // now inferred as PartKey[]
 
     const [answers, setAnswers] = useState<Record<PartKey, string>>({
         A: "",
